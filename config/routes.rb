@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   # post '/restaurants/', to: 'restaurants#create'
   # # Add review to restaurant
   # get 'restaurants/'
-  resources :restaurants, only: [:index, :new, :create, :show] do
-    resources :reviews, only:[:new, :index]
+  resources :restaurants, only: [:index, :new, :create, :show, :destroy] do
+    resources :reviews, only:[:new, :create]
   end
+  resources :reviews, only:[:destroy]
 end
